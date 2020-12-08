@@ -34,20 +34,23 @@ function runEnter() {
   tbody.html("");
 
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime") || d3.select("#datecity");
+  var inputElementDate = d3.select("#datetime");
+  var inputElementCity = d3.select("#datecity");
   
   // Get the value property of the input element
-  var inputValue = inputElement.property("value");
+  var inputValueDate = inputElementDate.property("value");
+  var inputValueCity = inputElementCity.property("value");
   
-  console.log(inputValue);
-    console.log(data);
+  console.log(inputValueDate);
+  console.log(inputValueCity);
+  console.log(data);
 
-  var filteredData = data.filter((viewing) => viewing.date === inputValue);
+  var filteredData = data.filter((viewing) => viewing.datetime === inputValueDate || viewing.datecity === inputValueCity);
   
   filteredData.forEach(function(ufoReport) {
     var tbody = d3.select("tbody");
 
-    console.log(filteredDataDate);
+    console.log(filteredData);
 
     var row = tbody.append("tr")
 
