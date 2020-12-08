@@ -32,6 +32,7 @@ form.on("submit", runEnter);
 function runEnter() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
+  tbody.html("");
 
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
