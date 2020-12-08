@@ -1,4 +1,3 @@
-
 // Get a reference to the table body
 var tbody = d3.select("tbody");
 
@@ -35,20 +34,20 @@ function runEnter() {
   tbody.html("");
 
   // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
-
+  var inputElement = d3.select("#datetime") || d3.select("#datecity");
+  
   // Get the value property of the input element
   var inputValue = inputElement.property("value");
-
+  
   console.log(inputValue);
-  console.log(data);
+    console.log(data);
 
-  var filteredData = data.filter((viewing) => viewing.datetime === inputValue);
-
+  var filteredData = data.filter((viewing) => viewing.date === inputValue);
+  
   filteredData.forEach(function(ufoReport) {
     var tbody = d3.select("tbody");
 
-    console.log(filteredData);
+    console.log(filteredDataDate);
 
     var row = tbody.append("tr")
 
