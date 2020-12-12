@@ -35,7 +35,7 @@ function runEnter() {
 
   // Select the input element and get the raw HTML node
   var inputElementDate = d3.select("#datetime");
-  var inputElementCity = d3.select("#datecity");
+  var inputElementCity = d3.select("#city");
   
   // Get the value property of the input element
   var inputValueDate = inputElementDate.property("value");
@@ -45,7 +45,9 @@ function runEnter() {
   console.log(inputValueCity);
   console.log(data);
 
-  var filteredData = data.filter((viewing) => viewing.datetime === inputValueDate || viewing.datecity === inputValueCity);
+  var filteredData = data.filter((viewing) => viewing.datetime === inputValueDate || ! inputValueDate)
+                          filter((viewing) => viewing.city === inputValueCity || ! inputValueCity)
+  ;
   
   filteredData.forEach(function(ufoReport) {
     var tbody = d3.select("tbody");
